@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default class Search extends React.Component{
+export default class History extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         return(
-            <p>This is a P tag in the Search component</p>
+            <p>This is a P tag in the History Component </p>
         )
     }
 }
