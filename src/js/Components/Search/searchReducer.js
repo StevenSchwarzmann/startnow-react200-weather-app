@@ -7,7 +7,7 @@ export default function SearchReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "UPDATE_SEARCH": {
+    case "UPDATE_SEARCH_FULFILLED": {
       console.log("payload.data", payload.data)
       return {
         ...state,
@@ -15,8 +15,8 @@ export default function SearchReducer(state = defaultState, action) {
       };
       break;
     }
-    //add history?
-    case "UPDATE_TEXT": {
+
+    case "ADD_HISTORY": {
       return {
         ...state,
         history: [

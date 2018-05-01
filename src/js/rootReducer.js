@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import SearchReducer from './Components/Search/searchReducer'
 const rootReducer = combineReducers({
 // add reducers
-    search: SearchReducer
+    city: SearchReducer
 });
 
 export default rootReducer;

@@ -1,3 +1,9 @@
 import City from './city';
+import { connect } from 'react-redux';
 
-export default City;
+function mapStoreToProps(store) {
+    return {
+        city: store.city.city
+    }
+}
+export default connect(mapStoreToProps)(City);
