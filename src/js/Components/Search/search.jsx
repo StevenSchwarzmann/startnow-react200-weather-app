@@ -1,5 +1,5 @@
 import React from "react";
-import { updateSearch, addHistory } from "./searchActions";
+import { updateSearch, updateHistory } from "./searchActions";
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -9,47 +9,48 @@ export default class Search extends React.Component {
     };
 
     this.handleClickNavBtn = this.handleClickNavBtn.bind(this);
+    this.handleUpdateWeather = this.handleUpdateWeather.bind(this);
   }
 
   handleClickNavBtn(e) {
-    const { dispatch } = this.props;
-    const { value } = e.target;
-    if (e.target === "city") {
-      this.setState = { CityInput: value };
-      dispatch(addHistory(value));
-      dispatch(updateSearch(value));
-      return;
-    } 
-    dispatch(updateSearch(this.state.CityInput));
-    dispatch(addHistory(this.state.CityInput));
-  }
+      const { dispatch } = this.props;
+      dispatch(updateSearch(e.target.value));
+      e.target.classList.contains('btn') ? this.handleUpdateWeather(e, 'btn') : '';
+    }
+
+    handleUpdateWeather(e, btn) {
+      e.preventDefault();
+      const { city, dispatch } = this.props;
+      btn ? dispatch(updateHistory(e.target.value)) : dispatch(updateHistory(city));
+      btn ? dispatch(updateSearch(e.target.value)) : dispatch(updateSearch(city));
+    }
 
   render() {
     return (
       <div className="containerSearch">
         <ul className="nav nav-tabs" onClick={this.handleClickNavBtn}>
           <li>
-            <button className="btn btn-primary" value="San Diego">
+            <button name='city' className="btn btn-primary" value="San Diego">
               San Diego
             </button>
           </li>
           <li>
-            <button className="btn btn-primary" value="New York">
+            <button name='city' className="btn btn-primary" value="New York">
               New York
             </button>
           </li>
           <li>
-            <button className="btn btn-primary" value="District of Columbia">
+            <button name='city' className="btn btn-primary" value="District of Columbia">
               Washington D.C.
             </button>
           </li>
           <li>
-            <button className="btn btn-primary" value="London">
+            <button name='city' className="btn btn-primary" value="London">
               London
             </button>
           </li>
           <li>
-            <button className="btn btn-primary" value="Tokyo">
+            <button name='city' className="btn btn-primary" value="Tokyo">
               Tokyo
             </button>
           </li>
@@ -59,8 +60,9 @@ export default class Search extends React.Component {
           className="form-control"
           placeholder="Search City"
           aria-label="Search City"
+          onChange={this.handleClickNavBtn}
         />
-        <button className="btn-submit">Go!</button>
+        <button className="btn-submit" onClick={this.handleUpdateWeather}>Go!</button>
       </div>
     );
   }

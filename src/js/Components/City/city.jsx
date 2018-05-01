@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 export default class City extends React.Component {
     constructor(props) {
         super(props);
     }
     render(){
+        const {city, weather} = this.props;
+        
         return(
+            
+
             <div className="containerCity">
             <header className='bg-primary'>
                 City Information
@@ -25,7 +29,7 @@ export default class City extends React.Component {
                 </div>
                 <div className='col-4'>
                 <strong> Humidity </strong>
-                    <div id='humidityOutput'>Humidity</div>
+                    {/* <div id='humidityOutput'>{weather.main.humidity}</div> */}
                 </div>
             </div>
             <div className='row'>
