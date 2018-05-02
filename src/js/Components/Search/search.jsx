@@ -1,5 +1,5 @@
 import React from "react";
-import { updateSearch, updateHistory } from "./searchActions";
+import { updateSearch, updateHistory, addCity, apiSearch } from "./searchActions";
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -10,11 +10,17 @@ export default class Search extends React.Component {
 
     this.handleClickNavBtn = this.handleClickNavBtn.bind(this);
     this.handleUpdateWeather = this.handleUpdateWeather.bind(this);
+    this.updateCity = this.updateCity.bind(this);
+  }
+
+  updateCity(e) {
+    const { dispatch } = this.props;
+    dispatch(updateSearch(e.target.value));
   }
 
   handleClickNavBtn(e) {
-    const { dispatch } = this.props;
-    dispatch(updateSearch(e.target.value));
+    const { dispatch, search } = this.props;
+    dispatch(apiSearch(search));
     e.target.classList.contains("btn")
       ? this.handleUpdateWeather(e, "btn")
       : "";
@@ -24,7 +30,7 @@ export default class Search extends React.Component {
     e.preventDefault();
     const { city, dispatch } = this.props;
     btn ? dispatch(updateHistory(e.target.value)) : dispatch(updateHistory(city));
-    btn ? dispatch(updateSearch(e.target.value)) : dispatch(updateSearch(city));
+    btn ? dispatch(apiSearch(e.target.value)) : dispatch(apiSearch(city));
   }
 
   render() {
@@ -66,9 +72,9 @@ export default class Search extends React.Component {
           className="form-control"
           placeholder="Search City"
           aria-label="Search City"
-          onChange={this.handleClickNavBtn}
+          onChange={this.updateCity}
         />
-        <button className="btn-submit" >
+        <button className="btn-submit" onClick={this.handleClickNavBtn}>
           Go!
         </button>
       </div>

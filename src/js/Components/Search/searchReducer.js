@@ -8,6 +8,7 @@ const defaultState = {
       temp_max: 0,
     }
   },
+  search: '',
   history: []
 };
 
@@ -22,7 +23,13 @@ export default function SearchReducer(state = defaultState, action) {
       };
       break;
     }
-    case "UPDATE_SEARCH_FULFILLED": {
+    case "UPDATE_SEARCH": {
+      return {
+        ...state,
+        search: payload
+      }
+    }
+    case "API_SEARCH_FULFILLED": {
       console.log("payload.data", payload.data);
       console.log("Humidity", payload.data.main.humidity);
       return {

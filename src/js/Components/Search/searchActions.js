@@ -11,10 +11,17 @@ export function addCity(city) {
     }
 }
 
-export function updateSearch(CityInput) {
-    const req = axios.get(`${ROOT_URL}&q=${CityInput}`);
+export function updateSearch(input) {
     return {
         type: 'UPDATE_SEARCH',
+        payload: input
+    }
+}
+
+export function apiSearch(CityInput) {
+    const req = axios.get(`${ROOT_URL}&q=${CityInput}`);
+    return {
+        type: 'API_SEARCH',
         payload: req
     }
 }
