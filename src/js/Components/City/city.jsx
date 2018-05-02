@@ -21,29 +21,29 @@ export default class City extends React.Component {
             <div className='row'>
                 <div className='col-4'>
                     <strong> Temperature (F) </strong>
-                        <div id='tempOutput'>Temp</div>
+                        <div id='tempOutput'>{this.props.city.main.temp}</div>
                 </div>
                 <div className='col-4'>
                 <strong>  Pressure </strong>
-                    <div id='pressureOutput'>Press</div>
+                    <div id='pressureOutput'>{this.props.city.main.pressure}</div>
                 </div>
                 <div className='col-4'>
                 <strong> Humidity </strong>
-                    {/* <div id='humidityOutput'>{weather.main.humidity}</div> */}
+                    <div id='humidityOutput'>{this.props.city.main.humidity}</div>
                 </div>
             </div>
             <div className='row'>
                 <div className='col-4'>
                 <strong> Lowest Temp(F) </strong>
-                    <div id='lowTempOutput'>Low</div>
+                    <div id='lowTempOutput'>{this.props.city.main.temp_min}</div>
                 </div>
                 <div className='col-4'>
                 <strong> Highest Temp(F) </strong>
-                    <div id='highTempOutput'>High</div>
+                    <div id='highTempOutput'>{this.props.city.main.temp_max}</div>
                 </div>
                 <div className='col-4'>
                 <strong> Wind Speed </strong>
-                    <div id='windSpeedOutput'>Wind</div>
+                    {/* <div id='windSpeedOutput'>{this.props.city.wind}</div> */}
                 </div>
             </div>
             </div>
