@@ -6,7 +6,9 @@ export default class City extends React.Component {
     }
     render(){
         const {city, weather} = this.props;
-        
+        const convertToF = f => {
+            return ( f * ( 9 / 5 ) - 459.67 ).toFixed(2)
+        }
         return(
             
 
@@ -21,7 +23,7 @@ export default class City extends React.Component {
             <div className='row'>
                 <div className='col-4'>
                     <strong> Temperature (F) </strong>
-                        <div id='tempOutput'>{this.props.city.main.temp}</div>
+                        <div id='tempOutput'>{convertToF(this.props.city.main.temp)}</div>
                 </div>
                 <div className='col-4'>
                 <strong>  Pressure </strong>
@@ -35,15 +37,15 @@ export default class City extends React.Component {
             <div className='row'>
                 <div className='col-4'>
                 <strong> Lowest Temp(F) </strong>
-                    <div id='lowTempOutput'>{this.props.city.main.temp_min}</div>
+                    <div id='lowTempOutput'>{convertToF(this.props.city.main.temp_min)}</div>
                 </div>
                 <div className='col-4'>
                 <strong> Highest Temp(F) </strong>
-                    <div id='highTempOutput'>{this.props.city.main.temp_max}</div>
+                    <div id='highTempOutput'>{convertToF(this.props.city.main.temp_max)}</div>
                 </div>
                 <div className='col-4'>
                 <strong> Wind Speed </strong>
-                    {/* <div id='windSpeedOutput'>{this.props.city.wind}</div> */}
+                    <div id='windSpeedOutput'>{this.props.city.wind && this.props.city.wind.speed}</div>
                 </div>
             </div>
             </div>

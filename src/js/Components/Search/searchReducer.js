@@ -6,7 +6,6 @@ const defaultState = {
       humidity: 0,
       temp_min: 0,
       temp_max: 0,
-      wind: 0
     }
   },
   history: []
