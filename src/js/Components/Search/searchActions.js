@@ -1,4 +1,5 @@
 const axios = require('axios');
+import moment from 'moment';
 //const API_KEY = 'f919f4eb27b76a9da7c634271581a158';
 const API_KEY = '74accdf828a6548309c02e7d2d6ca63f'; //Dylans API
 
@@ -27,9 +28,8 @@ export function apiSearch(CityInput) {
 }
 
 export function updateHistory(city) {
-    const date = Date.now()
     return {
     type: 'UPDATE_HISTORY',
-    payload:  city, date 
+    payload:  { city, date: moment().format('MM do YYYY, hh:mm:ss a') }
     }
 }

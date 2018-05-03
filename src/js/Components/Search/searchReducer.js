@@ -31,15 +31,17 @@ export default function SearchReducer(state = defaultState, action) {
     }
     case "API_SEARCH_FULFILLED": {
       console.log("payload.data", payload.data);
-      console.log("Humidity", payload.data.main.humidity);
+      console.log("Coords" , payload.data.coord);
       return {
         ...state,
         city: payload.data
+        
       };
       break;
     }
 
     case "UPDATE_HISTORY": {
+      console.log("History time--", payload.date)
       return {
         ...state,
         history: [...state.history, payload]

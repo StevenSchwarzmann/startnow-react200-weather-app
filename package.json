@@ -11,6 +11,7 @@
     "test": "npm run build && mocha test/.setup.js test/*.spec.js --exit"
   },
   "dependencies": {
+    "ajv": "^6.4.0",
     "axios": "^0.16.1",
     "babel-loader": "^7.1.1",
     "bluebird": "^3.5.0",
@@ -21,6 +22,7 @@
     "less-plugin-autoprefix": "^1.5.1",
     "lodash": "^4.15.0",
     "lodash-webpack-plugin": "^0.10.2",
+    "moment": "^2.22.1",
     "morgan": "^1.9.0",
     "nightmare": "^2.10.0",
     "prop-types": "^15.5.10",
