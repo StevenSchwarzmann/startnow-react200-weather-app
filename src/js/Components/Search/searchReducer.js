@@ -41,7 +41,6 @@ export default function SearchReducer(state = defaultState, action) {
     }
 
     case "UPDATE_HISTORY": {
-      console.log("History time--", payload.date)
       return {
         ...state,
         history: [...state.history, payload]

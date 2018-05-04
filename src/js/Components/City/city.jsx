@@ -17,8 +17,9 @@ export default class City extends React.Component {
                 City Information
             </header>
             <br></br>
-            <div className='cityOutput'>
-                {(this.props.city.name ? <div><img id='weatherImg' src={'http://openweathermap.org/img/w/' + this.props.city.weather[0].icon + '.png'} /><h2>{this.props.city.name}</h2><h8>{this.props.city.coord.lon + ', ' + this.props.city.coord.lat}</h8></div> : <h2> City Name </h2>)}
+            <div className='cityOutput'> 
+            {/* lat/long is not displaying */}
+                {(this.props.city.name ? <div><img id='weatherImg' src={'http://openweathermap.org/img/w/' + this.props.city.weather[0].icon + '.png'} /><h2>{this.props.city.name}</h2><h8>{'Lon/Lat: ' + this.props.city.coord.lon + ', ' + this.props.city.coord.lat}</h8></div> : <h2> City Name </h2>)}
             </div>
             <div className='row'>
                 <div className='col-4'>
