@@ -21,7 +21,7 @@ export default class Search extends React.Component {
   handleClickNavBtn(e) {
     const { dispatch, search } = this.props;
     dispatch(apiSearch(search));
-    dispatch(updateHistory(search));
+    // dispatch(updateHistory(search));
     e.target.classList.contains("btn")
       ? this.handleUpdateWeather(e, "btn")
       : "";
